@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ws.framework.core.mapper.CustomerMapper">
+
+	<select id="queryCustomer" resultType="com.ws.framework.core.domain.Contact" >
+		select * FROM tb_contact WHERE ROW_ID = 1 ;
+	</select>
+
+	<select id="queryCustomerDetail" resultType="map" parameterType="java.lang.String">
+		select
+		c.ROW_ID as customNo,
+		c.ID_CODE as idCard,
+		c.PRI_PHONE as phone,
+		c.LAST_NAME as custName,
+		c.SEX as sex,
+		c.BIRTH_DT as birthDate,
+		c.LOCAL_CITY as localCity,
+		c.HOME_ADDRESS as homeAddress,
+		c.NATURE_STREET as natureStreet,
+		p.PROVINCENAME as natureState,
+		t.CITYNAME as natureCity,
+		z.CITYZONENAME as natureCityzone
+		from tb_contact c
+		INNER JOIN tb_sys_province p
+		ON c.NATURE_STATE = p.PROVINCEID
+		INNER JOIN tb_sys_city t
+		ON c.NATURE_CITY = t.CITYID
+		INNER JOIN tb_sys_cityzone z
+		ON c.NATURE_CITYZONE = z.CITYZONEID
+		where
+		c.ROW_ID = #{customerNo}
+	</select>
+
+</mapper>
