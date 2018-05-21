@@ -6,6 +6,7 @@ package com.ws.framework.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.ws.framework.core.domain.Contact;
 import com.ws.framework.core.mapper.CustomerMapper;
+import com.ws.framework.service.CustomerService;
 import com.ws.framework.web.aop.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,7 @@ public class TestController {
 
 
     @Autowired
-    private CustomerMapper customerMapper;
+    private CustomerService customerService;
 
     @RequestMapping(value = "/hello", method = RequestMethod.POST)
     @ResponseBody
@@ -42,7 +43,7 @@ public class TestController {
         hello.setMsg("wangsi");
         System.out.println("king kong");
 
-        Map<String,Object> contact = customerMapper.queryCustomerDetail("1");
+        Map<String,Object> contact = customerService.queryCustomerById("1");
         System.out.println(JSON.toJSONString(contact));
 
         log.info("ssssssssssssss");
