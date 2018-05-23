@@ -22,6 +22,7 @@ public class LoggerTest {
         logger.warn("warn message");
         logger.error("error message");
         System.out.println("Hello World!");
+
     }
 
 }

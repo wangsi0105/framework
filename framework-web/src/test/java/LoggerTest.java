@@ -14,12 +14,14 @@ public class LoggerTest {
     static Logger logger = LoggerFactory.getLogger(LoggerTest.class);
 
     public static void main(String[] args) {
-        logger.trace("trace message");
-        logger.debug("debug message");
-        logger.info("info message");
-        logger.warn("warn message");
-        logger.error("error message");
-        System.out.println("Hello World!");
+//        logger.trace("trace message");
+//        logger.debug("debug message");
+//        logger.info("info message");
+//        logger.warn("warn message");
+//        logger.error("error message");
+//        System.out.println("Hello World!");
+
+
     }
 
 }

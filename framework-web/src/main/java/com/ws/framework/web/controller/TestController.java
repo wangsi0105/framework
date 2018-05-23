@@ -42,6 +42,7 @@ public class TestController {
         Hello hello = new Hello();
         hello.setMsg("wangsi");
         System.out.println("king kong");
+        System.out.println("get properties:" + System.getProperty("datasource.url"));
 
         Map<String,Object> contact = customerService.queryCustomerById("1");
         System.out.println(JSON.toJSONString(contact));
