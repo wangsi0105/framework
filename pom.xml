@@ -105,6 +105,7 @@
         <mongodb.version>3.2.2</mongodb.version>
         <protostuff.version>1.0.9</protostuff.version>
         <kryo.version>2.16</kryo.version>
+        <rocketmq.version>3.2.6</rocketmq.version>
     </properties>
 
 
@@ -519,6 +520,20 @@
             </dependency>
 
             <!-- schedule end -->
+
+            <!--rocketmq start -->
+            <dependency>
+                <groupId>com.alibaba.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.rocketmq</groupId>
+                <artifactId>rocketmq-all</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+            <!--rocketmq end -->
 
         </dependencies>
     </dependencyManagement>
