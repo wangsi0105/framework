@@ -21,23 +21,20 @@
         </dependency>
 
         <!--framework-common-->
-        <dependency>
-            <groupId>com.ws.framework</groupId>
-            <artifactId>common-utils</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>com.ws.framework</groupId>
             <artifactId>common-cache</artifactId>
             <version>1.1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.ws.framework</groupId>
+                    <artifactId>common-logger</artifactId>
+                </exclusion>
+
+            </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>com.ws.framework</groupId>
-            <artifactId>common-globalConfig</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
-        </dependency>
         <!--framework-common-->
 
         <dependency>
