@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
@@ -27,8 +28,7 @@ import java.util.Map;
 @RequestMapping(value = "/test")
 public class TestController {
 
-    protected static final Logger log = LoggerFactory
-            .getLogger(TestController.class);
+    protected static final Logger log = LoggerFactory.getLogger(TestController.class);
 
 
     @Autowired
@@ -37,8 +37,9 @@ public class TestController {
     @RequestMapping(value = "/hello", method = RequestMethod.POST)
     @ResponseBody
     @DataSource(name=DataSource.hk_orderparentdefault)
-    public Object queryAllLineUp(HttpServletResponse response) {
-        response.setContentType("application/json;charset=utf-8");
+    public Object hello(String name,HttpServletRequest request, HttpServletResponse response) {
+//        response.setContentType("application/json;charset=utf-8");
+
         Hello hello = new Hello();
         hello.setMsg("wangsi");
         System.out.println("king kong");
@@ -47,7 +48,8 @@ public class TestController {
         Map<String,Object> contact = customerService.queryCustomerById("1");
         System.out.println(JSON.toJSONString(contact));
 
-        log.info("ssssssssssssss");
+//        log.info("test controller ,hello param={}",JSON.toJSONString(contact));
+
 
         return hello;
     }
