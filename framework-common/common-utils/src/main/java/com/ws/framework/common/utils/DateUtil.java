@@ -6,8 +6,6 @@ import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,7 +20,6 @@ import java.util.regex.Pattern;
  */
 public class DateUtil implements DateFormat
 {
-    private static final Logger logger = LoggerFactory.getLogger(DateUtil.class);
 
     /**
      * 
@@ -250,7 +247,6 @@ public class DateUtil implements DateFormat
                 dt = dt.plusMillis(offset);
                 break;
             default:
-                logger.warn("错误的偏移类型！请在1-8的数字做出选择。");
                 break;
         }
 
