@@ -4,8 +4,7 @@ package com.ws.framework.web.controller;
  */
 
 import com.alibaba.fastjson.JSON;
-import com.ws.framework.core.domain.Contact;
-import com.ws.framework.core.mapper.CustomerMapper;
+import com.ws.framework.common.logger.TraceUtils;
 import com.ws.framework.service.CustomerService;
 import com.ws.framework.web.aop.DataSource;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ import java.util.Map;
 @RequestMapping(value = "/test")
 public class TestController {
 
-    protected static final Logger log = LoggerFactory.getLogger(TestController.class);
+    protected static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
 
     @Autowired
@@ -40,6 +39,8 @@ public class TestController {
     public Object hello(String name,HttpServletRequest request, HttpServletResponse response) {
 //        response.setContentType("application/json;charset=utf-8");
 
+//        String traceid = "testTraceId111";
+//        TraceUtils.beginTrace(traceid);
         Hello hello = new Hello();
         hello.setMsg("wangsi");
         System.out.println("king kong");
@@ -48,7 +49,7 @@ public class TestController {
         Map<String,Object> contact = customerService.queryCustomerById("1");
         System.out.println(JSON.toJSONString(contact));
 
-//        log.info("test controller ,hello param={}",JSON.toJSONString(contact));
+        logger.info("test controller ,hello param={}",JSON.toJSONString(contact));
 
 
         return hello;

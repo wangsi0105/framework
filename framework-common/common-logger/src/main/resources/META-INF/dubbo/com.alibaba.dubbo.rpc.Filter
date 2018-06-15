@@ -1,0 +1,2 @@
+DubboTracingAttachment=com.ws.framework.common.logger.filter.DubboTracingAttachment
+DubboTracingDetachment=com.ws.framework.common.logger.filter.DubboTracingDetachment

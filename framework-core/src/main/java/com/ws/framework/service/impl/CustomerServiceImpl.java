@@ -3,6 +3,8 @@ package com.ws.framework.service.impl;
  * Created by Administrator on 2018/5/21.
  */
 
+import cn.touna.crm.common.ApiResult;
+import cn.touna.crm.dto.customer.CustomerDto;
 import com.alibaba.fastjson.JSON;
 import com.ws.framework.core.mapper.CustomerMapper;
 import com.ws.framework.service.CustomerService;
@@ -26,6 +28,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerMapper customerMapper;
 
+    @Autowired
+    private cn.touna.crm.api.CustomerService crmCustomerService;
+
     @Override
     public Map<String,Object> queryCustomerById(String id) {
 
@@ -34,6 +39,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         Map<String,Object> contact = customerMapper.queryCustomerDetail("1");
         System.out.println(JSON.toJSONString(contact));
+
+
+        ApiResult<CustomerDto> apiResult = crmCustomerService.queryCustomerInfo("2");
+        log.info("query crm system result={}",JSON.toJSONString(apiResult));
 
 
         return contact;

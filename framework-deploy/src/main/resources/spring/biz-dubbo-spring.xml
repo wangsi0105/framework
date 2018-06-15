@@ -9,14 +9,19 @@
 
 	<dubbo:application name="service-provider" />
 
-	<dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+	<!--<dubbo:registry address="zookeeper://10.1.5.133:2181"/>-->
+
+	<dubbo:registry address="zookeeper://10.0.4.78:2181"/>
 
 	<dubbo:protocol name="dubbo" port="20880" />
 
-	<dubbo:consumer check="false" retries="0"/>
+	<dubbo:consumer check="false" retries="0" filter="DubboTracingAttachment"/>
 
 	<bean id="customerService" class="com.ws.framework.service.impl.CustomerServiceImpl" />
 	<dubbo:service interface="com.ws.framework.service.CustomerService" ref="customerService"/>
 
+
+	<dubbo:reference interface="cn.touna.crm.api.CustomerService"
+					 id="crmCustomerService" check="false" group="crm" url="dubbo://10.0.4.134:19810"/>
 
 </beans>

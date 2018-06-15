@@ -31,6 +31,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!--配置过滤器-->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -43,6 +44,18 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+    <filter>
+        <filter-name>ServletTraceFilter</filter-name>
+        <filter-class>com.ws.framework.common.logger.filter.ServletTraceFilter</filter-class>
+    </filter>
+    <!--映射过滤器-->
+    <filter-mapping>
+        <filter-name>ServletTraceFilter</filter-name>
+        <!--“/*”表示拦截所有的请求 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
