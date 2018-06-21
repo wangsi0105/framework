@@ -15,6 +15,17 @@
 	</context:component-scan>
 
 
+	<bean id="fwWebSecurityManager" class="com.ws.framework.web.security.FWWebSecurityManager">
+		<!-- 那些url不需要验证 -->
+		<property name="extUrl">
+			<list>
+				<value>/login/login</value>
+			</list>
+		</property>
+		<!-- 登录token过期时间 毫秒 15天过期 -->
+		<!--<property name="effectiveTime" value="1296000000" />-->
+	</bean>
+
 
 
 	<!--spring容器只会启动一个PropertyPlaceholderConfigurer实例，但是可以通过指定启动顺序的方式分散配置

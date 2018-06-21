@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
@@ -46,8 +47,8 @@ public class TestController {
         System.out.println("king kong");
         System.out.println("get properties:" + System.getProperty("datasource.url"));
 
-        Map<String,Object> contact = customerService.queryCustomerById("1");
-        System.out.println(JSON.toJSONString(contact));
+        Map<String,Object> contact = customerService.queryCustomerById("1000005817");
+//        System.out.println(JSON.toJSONString(contact));
 
         logger.info("test controller ,hello param={}",JSON.toJSONString(contact));
 

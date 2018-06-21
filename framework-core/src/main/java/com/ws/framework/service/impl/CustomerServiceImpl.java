@@ -28,8 +28,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerMapper customerMapper;
 
-    @Autowired
-    private cn.touna.crm.api.CustomerService crmCustomerService;
+//    @Autowired
+//    private cn.touna.crm.api.CustomerService crmCustomerService;
 
     @Override
     public Map<String,Object> queryCustomerById(String id) {
@@ -37,12 +37,13 @@ public class CustomerServiceImpl implements CustomerService {
 
         log.info("query queryCustomerById id={}",id);
 
-        Map<String,Object> contact = customerMapper.queryCustomerDetail("1");
+        Map<String,Object> contact = customerMapper.queryCustomerDetail("1000005817");
         System.out.println(JSON.toJSONString(contact));
 
 
-        ApiResult<CustomerDto> apiResult = crmCustomerService.queryCustomerInfo("2");
-        log.info("query crm system result={}",JSON.toJSONString(apiResult));
+//        ApiResult<CustomerDto> apiResult = crmCustomerService.queryCustomerInfo("2");
+//        System.out.println(JSON.toJSONString(apiResult));
+//        log.info("query crm system result={}",JSON.toJSONString(apiResult));
 
 
         return contact;

@@ -16,17 +16,8 @@
 		c.BIRTH_DT as birthDate,
 		c.LOCAL_CITY as localCity,
 		c.HOME_ADDRESS as homeAddress,
-		c.NATURE_STREET as natureStreet,
-		p.PROVINCENAME as natureState,
-		t.CITYNAME as natureCity,
-		z.CITYZONENAME as natureCityzone
+		c.NATURE_STREET as natureStreet
 		from tb_contact c
-		INNER JOIN tb_sys_province p
-		ON c.NATURE_STATE = p.PROVINCEID
-		INNER JOIN tb_sys_city t
-		ON c.NATURE_CITY = t.CITYID
-		INNER JOIN tb_sys_cityzone z
-		ON c.NATURE_CITYZONE = z.CITYZONEID
 		where
 		c.ROW_ID = #{customerNo}
 	</select>

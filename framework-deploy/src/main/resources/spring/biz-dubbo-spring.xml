@@ -21,7 +21,7 @@
 	<dubbo:service interface="com.ws.framework.service.CustomerService" ref="customerService"/>
 
 
-	<dubbo:reference interface="cn.touna.crm.api.CustomerService"
-					 id="crmCustomerService" check="false" group="crm" url="dubbo://10.0.4.134:19810"/>
+	<!--<dubbo:reference interface="cn.touna.crm.api.CustomerService"-->
+					 <!--id="crmCustomerService" check="false" group="crm" url="dubbo://10.0.4.134:19810"/>-->
 
 </beans>
