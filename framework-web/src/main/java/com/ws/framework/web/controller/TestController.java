@@ -4,21 +4,30 @@ package com.ws.framework.web.controller;
  */
 
 import com.alibaba.fastjson.JSON;
-import com.ws.framework.common.logger.TraceUtils;
+import com.ws.framework.web.vo.TestVo;
 import com.ws.framework.service.CustomerService;
 import com.ws.framework.web.aop.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
+import java.util.Set;
+
+import javax.validation.Configuration;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+
+import org.hibernate.validator.HibernateValidator;
+import org.hibernate.validator.HibernateValidatorConfiguration;
 
 /**
  * @author wangsi
@@ -33,6 +42,9 @@ public class TestController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private Validator validator;
 
     @RequestMapping(value = "/hello", method = RequestMethod.POST)
     @ResponseBody
@@ -54,6 +66,23 @@ public class TestController {
 
 
         return hello;
+    }
+
+    @RequestMapping(value = "/helloBody", method = RequestMethod.POST)
+    @ResponseBody
+    public Object helloBody(@RequestBody TestVo testVo, HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(JSON.toJSONString(testVo));
+
+        validator.validate(testVo);
+
+        Set<ConstraintViolation<TestVo>> set = validator.validate(testVo);
+        for (ConstraintViolation<TestVo> constraintViolation : set) {
+            System.out.println(constraintViolation.getMessage());
+        }
+
+
+
+        return "helloBody";
     }
 
 

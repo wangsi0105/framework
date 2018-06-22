@@ -58,7 +58,7 @@
 
 	<bean id="validateMessageSource"
 		  class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="classpath:common-config" />
+		<property name="basename" value="config.validateMessage" />
 		<property name="fileEncodings" value="UTF-8" />
 		<property name="cacheSeconds" value="120" />
 	</bean>
